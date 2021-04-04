@@ -11,7 +11,6 @@ module.exports = function (app) {
       unique: true,
       allowNull: false,
       validate: {
-        isAlpha: true,
         notEmpty: true
       }
     },
@@ -19,7 +18,6 @@ module.exports = function (app) {
       type: DataTypes.JSON,
       allowNull: false,
       validate: {
-        isAlpha: true,
         notEmpty: true
       }
     }

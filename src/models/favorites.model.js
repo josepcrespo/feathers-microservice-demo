@@ -6,9 +6,22 @@ const DataTypes = Sequelize.DataTypes;
 module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient');
   const favorites = sequelizeClient.define('favorites', {
-    text: {
+    listName: {
       type: DataTypes.STRING,
-      allowNull: false
+      unique: true,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+        notEmpty: true
+      }
+    },
+    favorites: {
+      type: DataTypes.JSON,
+      allowNull: false,
+      validate: {
+        isAlpha: true,
+        notEmpty: true
+      }
     }
   }, {
     hooks: {

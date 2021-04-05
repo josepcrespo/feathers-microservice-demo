@@ -1,38 +1,38 @@
 version: '2.4'
 
 services:
-node_server:
-  image: node:lts-alpine
-  restart: always
-  build:
-    context: ./
-    dockerfile: ./dockerfiles/node_runtime/Dockerfile
-  environment:
-    - DATABASE_HOST=mysql_server
-  depends_on:
-    mysql_server:
-      condition: service_healthy
-  volumes:
-    - './:/usr/src/app'
-    - '/usr/src/app/node_modules'
-  ports:
-    # <Port exposed> : <Node.js Port running inside container>
-    - '3030:3030'
-  expose:
-    # Opens port 3030 on the container
-    - '3030'
-mysql_server:
-  image: mysql:5.7.31
-  restart: always
-  build: ./dockerfiles/mysql_database
-  environment:
-    MYSQL_ROOT_PASSWORD: secret
-    MYSQL_DATABASE: feathers_microservice_demo
-  ports:
-    # <Port exposed> : <MySQL Port running inside container>
-    - '3306:3306'
-  expose:
-    # Opens port 3306 on the container
-    - '3306'
-  healthcheck:
-    test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
+  node_server:
+    image: node:lts-alpine
+    restart: always
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/node_runtime/Dockerfile
+    environment:
+      - DATABASE_HOST=mysql_server
+    depends_on:
+      mysql_server:
+        condition: service_healthy
+    volumes:
+      - './:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      # <Port exposed> : <Node.js Port running inside container>
+      - '3030:3030'
+    expose:
+      # Opens port 3030 on the container
+      - '3030'
+  mysql_server:
+    image: mysql:5.7.31
+    restart: always
+    build: ./dockerfiles/mysql_database
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: feathers_microservice_demo
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD

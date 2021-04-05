@@ -1,4 +1,5 @@
 {
   "host": "feathers-microservice-demo.herokuapp.com",
+  "port": "PORT",
   "mysql": "JAWSDB_URL"
 }

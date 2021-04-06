@@ -30,7 +30,7 @@ When used as a REST API, incoming requests get mapped automatically to their cor
 | Service method                                    | HTTP method | Path                     |
 |:---                                               |:---         |:---                      |
 | service.find({ query: {} })                       | GET         | /favorites                   |
-| service.find({ query: { permissions: 'admin' } }) | GET         | /favorites?permissions=admin |
+| service.find({ query: { listName: 'title' } }) | GET         | /favorites?listName=title |
 | service.get(1)                                    | GET         | /favorites/1                 |
 | service.create(body)                              | POST        | /favorites                   |
 | service.update(1, body)                           | PUT         | /favorites/1                 |

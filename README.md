@@ -43,11 +43,15 @@ This way, we have a fully functional REST API endpoint for our `/favorites` serv
 
 You need [Git](https://git-scm.com) >= `v2.24.3` and, [Docker Engine](https://docker.com/) >= `v19.03.13`. Make sure you don't have any other service using the 3030 port.
 
+Execute the following single line list of commands on your favorite shell:
+
 ```bash
 $ git clone https://github.com/josepcrespo/feathers-microservice-demo.git && cd feathers-microservice-demo && docker-compose build --no-cache --force-rm && docker-compose up
 ```
 
-The service will be available at [http://localhost:3030](http://localhost:3030)
+The service will be available at [http://localhost:3030](http://localhost:3030) after the process finishes (it may take a few minutes), you will see something like this:
+
+![finished process](readme_images/dockerized-microservice-up.png)
 
 ## Local setup (if don't want a Docker setup)
 
